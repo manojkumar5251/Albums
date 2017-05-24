@@ -14,8 +14,8 @@ class Albumlist extends Component {
       'Do you want to reload?', 
       [ 
         {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')}, 
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, 
-        {text: 'OK', onPress: () => this.componentWillMount()} 
+        {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, 
+        {text: 'Yes', onPress: () => this.componentWillMount()} 
       ] 
     ));
   }
