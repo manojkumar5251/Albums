@@ -13,7 +13,6 @@ class Albumlist extends Component {
       'Loading Failed', 
       'Do you want to reload?', 
       [ 
-        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')}, 
         {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, 
         {text: 'Yes', onPress: () => this.componentWillMount()} 
       ] 
@@ -26,8 +25,6 @@ renderAlbums(){
   );
 }
   render (){
-    console.log(this.state);
-
     return(
       <ScrollView>
         {this.renderAlbums()}
