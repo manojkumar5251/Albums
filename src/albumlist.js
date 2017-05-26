@@ -2,11 +2,13 @@ import React,{Component} from 'react';
 import {ScrollView,Alert} from 'react-native';
 import axios from 'axios';
 import Albumdetail from './albumdetail';
+import Spinner from './spinner';
 
 class Albumlist extends Component {
-  state={albums:[]};
+  state={albums:[],load:false};
 
   componentWillMount(){
+    this.setState({load:true});
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
     .then(hai => this.setState({albums:hai.data}))
     .catch(() => Alert.alert( 
@@ -25,6 +27,10 @@ renderAlbums(){
   );
 }
   render (){
+    if(this.state.load){
+      return(
+        <Spinner />
+      );
     return(
       <ScrollView>
         {this.renderAlbums()}
