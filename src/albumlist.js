@@ -10,14 +10,14 @@ class Albumlist extends Component {
   componentWillMount(){
     this.setState({load:true});
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-    .then(hai => this.setState({albums:hai.data}))
-    .catch(() => Alert.alert( 
-      'Loading Failed', 
-      'Do you want to reload?', 
-      [ 
-        {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}, 
-        {text: 'Yes', onPress: () => this.componentWillMount()} 
-      ] 
+    .then(hai => this.setState({albums:hai.data,load:false}))
+    .catch(() => Alert.alert(
+      'Loading Failed',
+      'Do you want to reload?',
+      [
+        {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Yes', onPress: () => this.componentWillMount()}
+      ]
     ));
   }
 
@@ -31,6 +31,7 @@ renderAlbums(){
       return(
         <Spinner />
       );
+    }
     return(
       <ScrollView>
         {this.renderAlbums()}
@@ -39,3 +40,4 @@ renderAlbums(){
 }
 }
 export default Albumlist;
+
